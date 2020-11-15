@@ -3,7 +3,10 @@ const bodyParser = require ('body-parser');
 
 const App = express ();
 
-App.arguments(bodyParser.json());
-App.arguments(bodyParser.urlencoded({extended: false}));
+const Cakes = require('./routers/cakes')
 
+App.use(bodyParser.json());
+App.use(bodyParser.urlencoded({extended: false}));
+
+App.use('/cakes',Cakes)
 module.exports = App;
